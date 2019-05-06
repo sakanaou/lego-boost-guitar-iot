@@ -7,7 +7,7 @@ lastColor = None
 lastMotorEAngle = None
 
 def voltageCallback(value):
-    print("Voltage: " + value)
+    print("Voltage: %s" % value)
     mqttc.publish("guitar/voltage", value)
 
 def distanceCallback(distance):
@@ -24,11 +24,11 @@ def distanceCallback(distance):
         lastColor = None
 
 def motorACallback(angle):
-    print("Motor A: " + angle)
+    print("Motor A: %s" % angle)
     mqttc.publish("guitar/motor_a", angle)
 
 def motorBCallback(angle):
-    print("Motor B: " + angle)
+    print("Motor B: %s" % angle)
     mqttc.publish("guitar/motor_b", angle)
     
 def motorECallback(angle):
