@@ -33,9 +33,11 @@ def motorBCallback(angle):
     
 def motorECallback(angle):
     global lastMotorEAngle
+    print("Motor E: %s" % angle)
+    pivot = 0
     if lastMotorEAngle is not None:
         if lastColor is not None:
-            if (lastMotorEAngle < 0 and angle > 0) or (lastMotorEAngle > 0 and angle < 0):
+            if (lastMotorEAngle < pivot and angle > pivot) or (lastMotorEAngle > pivot and angle < pivot):
                 print(lastColor)
                 mqttc.publish("guitar/color", lastColor)
     lastMotorEAngle = angle
